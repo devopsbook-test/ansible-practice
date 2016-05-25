@@ -1,0 +1,11 @@
+---
+# tasks file for common
+- name: install epel
+  yum: name=epel-release state=installed
+
+- name: disable selinux
+  selinux: state=disabled
+
+- name: set timezone
+  command: timedatectl set-timezone {{ timezone }}
+
