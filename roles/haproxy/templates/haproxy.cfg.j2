@@ -28,7 +28,7 @@ defaults
     timeout check           10s
     maxconn                 3000
 
-listen hastats *:8080
+listen hastats *:{{ haproxy_manage_port }}
     mode http
     maxconn 64
     timeout connect 5000
@@ -39,7 +39,7 @@ listen hastats *:8080
     stats uri /haproxy?hastats
     stats auth admin:admin
 
-frontend  main *:80
+frontend  main *:{{ haproxy_port }}
     default_backend             www
 
 backend www

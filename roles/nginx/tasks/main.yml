@@ -23,7 +23,7 @@
     - reload nginx
 
 - name: put custom config
-  template: src=site.conf.j2 dest={{ nginx_config_dir }}/site.conf
+  template: src=site.conf.j2 dest={{ nginx_config_dir }}/site.conf owner={{ nginx_user.username }} group={{ nginx_user.groupname }} mode=0644
   notify:
     - reload nginx
 
@@ -33,3 +33,5 @@
 - name: service nginx start
   service: name=nginx state=started enabled=yes
 
+- name: put spec file of serverspec
+  local_action: template src=nginx_spec.rb.j2 dest={{ serverspec_base_dir }}/spec/{{ inventory_hostname }}/nginx_spec.rb

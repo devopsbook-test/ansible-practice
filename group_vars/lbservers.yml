@@ -1,9 +1,1 @@
 haproxy_version: "1.5.14-3.el7"
-haproxy_user: 
-  username: "haproxy"
-  uid: 2001
-  home: "/var/lib/haproxy"
-  shell: "/sbin/nologin"
-  groupname: "haproxy"
-  gid: 2001
-haproxy_config_dir: "/etc/haproxy"

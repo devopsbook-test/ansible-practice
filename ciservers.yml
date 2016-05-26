@@ -1,6 +1,7 @@
 ---
 # file: webservers.yml
 - hosts: ciservers
+  connection: local
   become: yes
   become_user: root
   gather_facts: no
